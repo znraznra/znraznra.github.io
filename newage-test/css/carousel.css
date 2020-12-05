@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+*:focus, *:active, *:visited {
+	outline: none;
+}
+
+.pill-set {
+	width: 100%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+  margin-top: -3em;
+	padding-left: 50px;
+	padding-right: 50px;
+	position: relative;
+}
+
+.slick-dots {
+	position: absolute;
+	width: 100%;
+  left: 0;
+	padding-left: : 0;
+	list-style: none;
+	text-align: center;
+  justify-content: center;
+}
+
+.slick-dots li {
+	position: relative;
+	display: inline-block;
+  justify-content:center;
+	width: 6px;
+	height: 6px;
+	padding: 0;
+	cursor: pointer;
+}
+
+.slick-dots li button {
+	display: none;
+}
+
+.slick-dots li:before {
+	top: 1px;
+	transition: all .5s;
+	content: '';
+	width: 6px;
+	height: 6px;
+	background-color: #0069ab;
+	position: absolute;
+  border-radius:1em;
+}
+
+.slick-dots li.slick-active:before {
+	top: 0;
+	width: 8px;
+	height: 8px;
+	margin-left: -2px;
+	background-color: cyan;
+}
+
+
+.pill-set > .slick-list > .slick-track{
+  padding-bottom:1em;
+}
+
+.pill__item {
+	transition: box-shadow 2s;
+	cursor: pointer;
+	position: relative;
+	border-radius: 0.8em;
+	background-color: white;
+	margin: 0 10px;
+	padding: 20px;
+	box-shadow: 0.1em 0.1em 0.2em 0.01em gray;
+}
+
+
+.pill__item_name {
+  font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	color: #000;
+	margin: 0;
+	margin-bottom: 7px;
+}
+
+.pill__item_status {
+  font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	color: #000;
+  font-weight:700;
+	font-size: 16px;
+}
+
+.pill__item_b1 {
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	background-image: url(https://znraznra.github.io/img/b1.svg);
+	top: 1em;
+	right: 30px;
+}
+
+.pill__item_b2 {
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	background-image: url(https://znraznra.github.io/img/b2.svg);
+	top: 1em;
+	right: 30px;
+}
+
+.pill__item_b3 {
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	background-image: url(https://znraznra.github.io/img/b3.svg);
+	top: 1em;
+	right: 30px;
+}
+
+.pill__item_b4 {
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	background-image: url(https://znraznra.github.io/img/b4.svg);
+	top: 1em;
+	right: 30px;
+}
+
+.pill__item_photo {
+	max-width: 150px;
+	max-height: 150px;
+	margin: auto;
+	margin-bottom: 54px;
+}
+
+.pill__item_contact {
+	font-size: 12px;
+	color: #fff;
+	margin: 2px;
+}
+
+.pill__item_contact span {
+	color: #3eaef2;
+	font-weight: 700;
+	margin-right: 5px;
+}
+
+.slider{
+  position:relative;
+  width:100%;
+  z-index:15
+}
+.slider__item {
+  height: 12em;
+  width: 12em;
+  margin: 0.25em;
+  opacity:0.8;
+  transform: scale(0.75);
+  transition: transform 200ms ease;
+}
+.slick-track > .slick-current {
+  width:45em;
+  transform: scale(1);
+}
+.slider > .slick-dots {
+	position: absolute;
+	bottom: -45px;
+	display: block;
+	width: 100%;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+.slider > .slick-dots li {
+	position: relative;
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin: 0 5px;
+	padding: 0;
+	cursor: pointer;
+  border-radius:1em;
+}
+
+.slider > .slick-dots li button {
+	display: none;
+}
+
+@media (min-width:320px){
+  .slider > .slick-list{
+    padding-top:3em;
+    height:24em;
+  }
+}
+@media (min-width:600px){
+  .slider > .slick-list{
+    padding-top:3em;
+    height:24em;
+  }
+}
+@media (min-width:768px){
+  .slider > .slick-list{
+    padding-top:4.5em;
+    height:24em;
+  }
+}
+@media (min-width:992px){
+  .slider > .slick-list{
+    padding-top:6em;
+    height:24em;
+  }
+}
+@media (min-width:600px){
+  .slider > .slick-list{
+    padding-top:6em;
+    height:24em;
+  }
+}
+
+.slider >  .slick-dots li:before {
+	top: 1px;
+	transition: all .5s;
+	content: '';
+	width: 6px;
+	height: 6px;
+	background-color: #011d29;
+	position: absolute;
+  border-radius:1em;
+}
+
+.slider >  .slick-dots li.slick-active:before {
+	top: 0;
+	width: 8px;
+	height: 8px;
+	margin-left: -2px;
+	background-color: cyan;
+}
+.slider > .slider__item {
+  height:100%;
+  width:100%;
+  margin:0.25em;
+  opacity:1;
+  transform:scale(0.1);
+  transition:transform 200ms ease;
+}
+
+.slider > .slick-track > .slick-current {
+
+}
+
+.navigation{
+  position:absolute;
+  z-index:5;
+}
+.prev .next{
+  position:absolute;
+  float:left;
+  z-index:5;
+}
