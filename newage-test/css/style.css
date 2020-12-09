@@ -8,12 +8,6 @@ nav, .banner-area div{
   z-index:5;
 }
 
-@media (min-width:992px){
-  .nav-link{
-    font-size:5pt;
-  }
-}
-
 h1, h2, h4, .nav-item a, .btxt{
   font-family: 'Montserrat', sans-serif;
   font-weight:700;
@@ -130,21 +124,6 @@ border-radius:1em 1em 1em 1em;
   border-bottom: 2px dashed #000;
 }
 
-@media(min-width:992px){
-  .div-down{
-    margin-top: 2em;
-  }
-  .div-up{
-    margin-bottom:2em;
-  }
-  .clip-left{
-    margin-left:-2em;
-  }
-  .clip-right{
-    margin-right:-2em;
-  }
-}
-
 .reviews{
   display:block;
   background-color:#0069ab;
@@ -243,6 +222,21 @@ border-radius:1em 1em 1em 1em;
 }
 
 @media (min-width:992px){
+  .div-down{
+    margin-top: 2em;
+  }
+  .div-up{
+    margin-bottom:2em;
+  }
+  .clip-left{
+    margin-left:-2em;
+  }
+  .clip-right{
+    margin-right:-2em;
+  }
+  .nav-link{
+    font-size:5pt;
+  }
   .review-bg img{
     position:absolute;
     right:0;
