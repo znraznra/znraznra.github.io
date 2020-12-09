@@ -246,6 +246,10 @@ border-radius:1em 1em 1em 1em;
   }
 }
 
+@media (min-width:1280px){
+  font-size:24pt;
+}
+
 .review-border img{
   position:absolute;
   left:0;
