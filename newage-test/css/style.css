@@ -235,7 +235,7 @@ border-radius:1em 1em 1em 1em;
     margin-right:-2em;
   }
   .nav-link{
-    font-size:5pt;
+    font-size:6pt;
   }
   .review-bg img{
     position:absolute;
@@ -243,6 +243,12 @@ border-radius:1em 1em 1em 1em;
     max-width:45em;
     margin-top:-25em;
     z-index:1;
+  }
+}
+
+@media (min-width:1024px){
+  .nav-link{
+    font-size:9pt;
   }
 }
 
