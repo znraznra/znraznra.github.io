@@ -8,6 +8,12 @@ nav, .banner-area div{
   z-index:5;
 }
 
+@media (min-width:992px){
+  .nav-link{
+    font-size:2em;
+  }
+}
+
 h1, h2, h4, .nav-item a, .btxt{
   font-family: 'Montserrat', sans-serif;
   font-weight:700;
