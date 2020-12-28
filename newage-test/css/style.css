@@ -79,14 +79,6 @@ p{
   align-items: center;
   justify-content: center;
 }
-.page-entries{
-  padding-top:5em;
-  padding-bottom: 5em;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 .page-entries > .container{
 	margin-top:75px;
 }
@@ -224,6 +216,11 @@ border-radius:1em 1em 1em 1em;
 }
 
 @media (min-width:600px){
+  .page-entries{
+  padding-top:5em;
+  padding-bottom: 5em;
+	
+  }
   .review-bg img{
     position:absolute;
     right:0;
@@ -241,9 +238,21 @@ border-radius:1em 1em 1em 1em;
     margin-top:-25em;
     z-index:1;
   }
+  .page-entries{
+  padding-top:5em;
+  padding-bottom: 5em;
+  }
 }
 
 @media (min-width:992px){
+  .page-entries{
+  padding-top:5em;
+  padding-bottom: 5em;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
   .div-down{
     margin-top: 2em;
   }
@@ -269,12 +278,28 @@ border-radius:1em 1em 1em 1em;
 }
 
 @media (min-width:1070px){
+  .page-entries{
+  padding-top:5em;
+  padding-bottom: 5em;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
   .nav-link{
     font-size:9pt;
   }
 }
 
 @media (min-width:1280px){
+  .page-entries{
+  padding-top:5em;
+  padding-bottom: 5em;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
   .nav-link{
     font-size:11pt;
   }
