@@ -9,70 +9,83 @@
 			<!-- link to main stylesheet -->
 			<link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 			<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+			<style type="text/css" media="screen">
+			      body {
+			        display: flex;
+			        min-height: 100vh;
+			        flex-direction: column;
+			      }
+			 
+			      #wrapper {
+			        flex: 1;
+			      }
+		    	</style>
 		</head>
 		<body>
-			<!-- navbar -->
-			<nav class="navbar is-transparent is-fixed-top">
-			  <div class="navbar-brand">
-			    <a class="navbar-item" href="https://znra.fyi"><img src="../img/favicon/favicon-64.ico" /></a>
-			    <div class="navbar-burger js-burger" data-target="navbarExampleTransparentExample">
-			      <span></span>
-			      <span></span>
-			      <span></span>
-			      <span></span>
-			    </div>
-			  </div>
-	
-			  <div id="navbarExampleTransparentExample" class="navbar-menu">
-			    <div class="navbar-start">
-			      <a class="navbar-item" href="https://znra.fyi/"> Home </a>
-			      <div class="navbar-item has-dropdown is-hoverable">
-				<a class="navbar-link" href="https://znra.fyi/works"> Works </a>
-				<div class="navbar-dropdown">
-				  <a class="navbar-item" href="https://znra.fyi/works/animation/"> Animation </a>
-				  <a class="navbar-item" href="https://znra.fyi/works/graphic-design/"> Graphic Design </a>
-				  <a class="navbar-item" href="https://znra.fyi/works/drafts"> Drafts </a>
-				  <a class="navbar-item" href="https://znra.fyi/works/other"> Other Projects </a>
-				</div>
-			      </div>
-			    </div>
-			
-			    <div class="navbar-end">
-			      <div class="navbar-item">
-				<div class="field is-grouped">
-				  <p class="control">
-				    <a
-				      class="bd-tw-button button"
-				      data-social-network="Twitter"
-				      data-social-action="tweet"
-				      data-social-target="https://znra.fyi"
-				      target="_blank"
-				      href="https://x.com/takoriin"
-				    >
-				      <span class="icon">
-					<i class="fab fa-twitter"></i>
-				      </span>
-				      <span> Follow </span>
-				    </a>
-				  </p>
-				</div>
-			      </div>
-			    </div>
-			  </div>
-			</nav>
-			<!-- navbar -->
-			
-			<section class="section">
-				<div class="container">
+			<div id="wrapper">
+				<!-- navbar -->
+				<nav class="navbar is-transparent is-fixed-top">
+				  <div class="navbar-brand">
+				    <a class="navbar-item" href="https://znra.fyi"><img src="../img/favicon/favicon-64.ico" /></a>
+				    <div class="navbar-burger js-burger" data-target="navbarExampleTransparentExample">
+				      <span></span>
+				      <span></span>
+				      <span></span>
+				      <span></span>
+				    </div>
+				  </div>
+		
+				  <div id="navbarExampleTransparentExample" class="navbar-menu">
+				    <div class="navbar-start">
+				      <a class="navbar-item" href="https://znra.fyi/"> Home </a>
+				      <div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link" href="https://znra.fyi/works"> Works </a>
+					<div class="navbar-dropdown">
+					  <a class="navbar-item" href="https://znra.fyi/works/animation/"> Animation </a>
+					  <a class="navbar-item" href="https://znra.fyi/works/graphic-design/"> Graphic Design </a>
+					  <a class="navbar-item" href="https://znra.fyi/works/drafts"> Drafts </a>
+					  <a class="navbar-item" href="https://znra.fyi/works/other"> Other Projects </a>
+					</div>
+				      </div>
+				    </div>
 				
-				{{ content }}
+				    <div class="navbar-end">
+				      <div class="navbar-item">
+					<div class="field is-grouped">
+					  <p class="control">
+					    <a
+					      class="bd-tw-button button"
+					      data-social-network="Twitter"
+					      data-social-action="tweet"
+					      data-social-target="https://znra.fyi"
+					      target="_blank"
+					      href="https://x.com/takoriin"
+					    >
+					      <span class="icon">
+						<i class="fab fa-twitter"></i>
+					      </span>
+					      <span> Follow </span>
+					    </a>
+					  </p>
+					</div>
+				      </div>
+				    </div>
+				  </div>
+				</nav>
+				<!-- navbar -->
 				
-				</div><!-- /.container -->
-			</section>
+				<section class="section">
+					<div class="container">
+					
+					{{ content }}
+					
+					</div><!-- /.container -->
+				</section>
+			</div>
 			<footer class="footer">
 			  <div class="content has-text-centered">
 			    <p>
-			      	2024 znra. Powered by Bulma.io
+				2024 znra. Powered by Bulma.io
 			    </p>
 			  </div>
 			</footer>
