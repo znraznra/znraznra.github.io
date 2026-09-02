@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<section class="section hero-intro">
+  <div class="container">
+    <h1 class="hero-intro-title">{{ site.title }}</h1>
+    {% if site.description %}<p class="hero-intro-desc">{{ site.description }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section post-list">
+  <div class="container">
+    <div class="post-list-wrap">
+      {% for post in site.posts %}
+        <article class="post-list-item">
+          <p class="post-list-date">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          </p>
+          <h2 class="post-list-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          {% if post.excerpt %}
+            <p class="post-list-excerpt">{{ post.excerpt | strip_html | truncate: 220 }}</p>
+          {% endif %}
+          <a class="post-list-more" href="{{ post.url | relative_url }}">Read more &rarr;</a>
+        </article>
+      {% else %}
+        <p>No posts yet — publish your first one from <code>/admin</code>.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>

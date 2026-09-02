@@ -1,0 +1,361 @@
+/* ==========================================================================
+   Theme tokens
+   Palette: main #2788a0 (teal) · contrast #16242f (deep navy) · hue #f9f8f7 (warm off-white)
+   Bulma 1.x reads color via HSL custom properties, so we set those directly
+   rather than recompiling Sass. https://bulma.io/documentation/customize/concepts/
+   ========================================================================== */
+
+:root {
+  /* Our own tokens, for use in the custom rules below */
+  --color-primary:  #2788a0;
+  --color-contrast: #16242f;
+  --color-hue:      #f9f8f7;
+  --color-primary-h: 192deg;
+  --color-primary-s: 61%;
+  --color-primary-l: 39%;
+
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  color-scheme: light;
+
+  /* Bulma neutral (grey) ramp — tuned to the warm off-white "hue" color */
+  --bulma-scheme-h: 30deg;
+  --bulma-scheme-s: 12%;
+  --bulma-light-l: 95%;
+  --bulma-dark-l: 15%;
+
+  /* Bulma brand colors — primary & link both use the main teal */
+  --bulma-primary-h: 192deg;
+  --bulma-primary-s: 61%;
+  --bulma-primary-l: 39%;
+
+  --bulma-link-h: 192deg;
+  --bulma-link-s: 61%;
+  --bulma-link-l: 34%;
+
+  --bulma-body-background-color: var(--color-hue);
+  --bulma-body-color: var(--color-contrast);
+  --bulma-family-primary: var(--font-body);
+}
+
+/* Bulma 1.x flips several of the above under prefers-color-scheme: dark.
+   We keep this site single-themed (matching the supplied brand palette
+   exactly), so pin the same values there too. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bulma-scheme-h: 30deg;
+    --bulma-scheme-s: 12%;
+    --bulma-light-l: 95%;
+    --bulma-dark-l: 15%;
+    --bulma-body-background-color: var(--color-hue);
+    --bulma-body-color: var(--color-contrast);
+  }
+}
+
+/* ==========================================================================
+   Typography — Helvetica Neue everywhere, including the Bulma components
+   that set their own font-family explicitly (buttons, inputs, titles...).
+   ========================================================================== */
+
+html, body,
+.title, .subtitle,
+.button, .input, .textarea, .select select,
+.navbar-item, .navbar-link,
+.tag, .label, .help,
+.menu-label, .menu-list,
+.breadcrumb, .pagination,
+.box, .card, .notification, .message,
+.dropdown-item {
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--color-hue);
+  color: var(--color-contrast);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-contrast);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-contrast);
+}
+
+main {
+  min-height: 60vh;
+}
+
+/* ==========================================================================
+   Navbar — the one bold, dark anchor element on the page
+   ========================================================================== */
+
+.site-navbar {
+  background-color: var(--color-contrast);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.site-navbar .site-brand {
+  color: var(--color-hue);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.site-navbar .site-brand:hover {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.site-navbar .navbar-item,
+.site-navbar .navbar-link {
+  color: var(--color-hue);
+  background-color: transparent;
+}
+
+.site-navbar .navbar-item:hover,
+.site-navbar .navbar-link:hover {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.site-navbar .navbar-burger {
+  color: var(--color-hue);
+}
+
+.site-navbar .navbar-burger span {
+  background-color: currentColor;
+  height: 2px;
+}
+
+.site-navbar .navbar-burger:hover {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1023px) {
+  .site-navbar .navbar-menu {
+    background-color: var(--color-contrast);
+  }
+}
+
+/* ==========================================================================
+   Homepage hero / intro
+   ========================================================================== */
+
+.hero-intro {
+  padding-bottom: 1.5rem;
+}
+
+.hero-intro-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-contrast);
+  margin-bottom: 0.5rem;
+}
+
+.hero-intro-desc {
+  font-size: 1.125rem;
+  color: hsl(206deg, 16%, 38%);
+  max-width: 40rem;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-intro-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Post list — hairline-divided entries, deliberately not a card grid
+   ========================================================================== */
+
+.post-list-wrap {
+  max-width: 46rem;
+}
+
+.post-list-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid hsl(30deg, 12%, 88%);
+}
+
+.post-list-item:first-child {
+  padding-top: 0;
+}
+
+.post-list-date {
+  font-size: 0.875rem;
+  color: hsl(206deg, 12%, 48%);
+  margin-bottom: 0.35rem;
+}
+
+.post-list-title {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.post-list-title a {
+  color: var(--color-contrast);
+}
+
+.post-list-title a:hover {
+  color: var(--color-primary);
+}
+
+.post-list-excerpt {
+  color: hsl(206deg, 14%, 32%);
+  line-height: 1.65;
+  margin-bottom: 0.5rem;
+  max-width: 42rem;
+}
+
+.post-list-more {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Single post / page
+   ========================================================================== */
+
+.post-wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.post-back {
+  font-size: 0.9375rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.post-meta {
+  color: hsl(206deg, 12%, 48%);
+  font-size: 0.9375rem;
+}
+
+.tag-label {
+  color: hsl(206deg, 12%, 48%);
+}
+
+.post-content {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-contrast);
+}
+
+.post-content h2,
+.post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.post-content a {
+  text-decoration: underline;
+  text-decoration-color: hsl(192deg, 45%, 70%);
+  text-underline-offset: 2px;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.25rem;
+  color: hsl(206deg, 14%, 32%);
+  margin: 1.5rem 0;
+}
+
+.post-content pre {
+  background-color: var(--color-contrast);
+  color: var(--color-hue);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.post-content code {
+  background-color: hsl(30deg, 20%, 92%);
+  color: var(--color-contrast);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.post-content pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .post-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-contrast);
+  color: hsl(30deg, 8%, 78%);
+  padding: 2.5rem 1.5rem;
+}
+
+.site-footer-inner {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.site-footer a {
+  color: hsl(30deg, 8%, 88%);
+}
+
+.site-footer a:hover {
+  color: var(--color-primary);
+}
+
+.site-footer-dot {
+  margin: 0 0.5rem;
+}
+
+/* ==========================================================================
+   Accessibility — visible focus states throughout
+   ========================================================================== */
+
+a:focus-visible,
+button:focus-visible,
+.navbar-burger:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

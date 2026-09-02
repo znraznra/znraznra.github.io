@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: znraznra/znraznra.github.io     # GitHub "owner/repo"
+  branch: main
+  # No base_url here on purpose. With none set, Sveltia's sign-in screen
+  # offers a "personal access token" option — since you're the only editor,
+  # that's simpler than standing up an OAuth app + worker. See site README
+  # for how to generate the token. (If you ever add other editors later,
+  # add `base_url: <your-oauth-worker-url>` back in — instructions are in
+  # oauth-worker/README.md.)
+
+# Drafts go through a pull request before they hit `main`, so nothing
+# reaches the live site until you approve/merge it.
+publish_mode: editorial_workflow
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Post"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "{{year}}/{{month}}/{{day}}/{{slug}}/"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Shown on the homepage list and used for the meta description." }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    folder: "_pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "e.g. /about/" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+# Note: site-wide settings (title, description, author) live in _config.yml
+# at the repo root. It's deliberately left out of the CMS — file-collection
+# widgets can overwrite keys they don't know about, and _config.yml has a
+# lot of keys the CMS doesn't need to touch. Edit it directly in GitHub.

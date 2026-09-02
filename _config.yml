@@ -1,0 +1,54 @@
+# ------------------------------------------------------------------
+# Site settings — edit these
+# ------------------------------------------------------------------
+title: "znra | Blog"
+description: "Experiments, personal projects, and personal ramblings."
+url: "https://znra.fyi"     # your Porkbun domain, no trailing slash
+baseurl: ""                        # leave blank unless served from a subpath
+author: "znra"
+github_username: "znraznra"
+github_repo: "znraznra.github.io"
+
+# ------------------------------------------------------------------
+# Build settings — leave as-is unless you know why you're changing it
+# ------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /:year/:month/:day/:title/
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: feed.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+
+show_drafts: false

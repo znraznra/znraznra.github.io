@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="section post">
+  <div class="container">
+    <div class="post-wrap">
+
+      <p class="post-back">
+        <a href="{{ '/' | relative_url }}">&larr; All posts</a>
+      </p>
+
+      <header class="post-header">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <p class="post-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+          {% if page.tags.size > 0 %}
+            <span class="post-meta-dot" aria-hidden="true">&middot;</span>
+            {% for tag in page.tags %}<span class="tag-label">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}
+          {% endif %}
+        </p>
+      </header>
+
+      <div class="post-content content">
+        {{ content }}
+      </div>
+
+    </div>
+  </div>
+</article>
