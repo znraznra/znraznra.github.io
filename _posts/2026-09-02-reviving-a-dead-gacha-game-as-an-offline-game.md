@@ -1,5 +1,5 @@
 ---
-title: Reviving a dead gacha game as an offline game
+title: Reviving a dead gacha game as an offline game - Day 1
 date: 2026-09-02T11:40:00
 tags:
   - gacha
