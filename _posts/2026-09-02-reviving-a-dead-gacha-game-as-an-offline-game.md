@@ -1,9 +1,9 @@
 ---
-title: Reviving a dead gacha game as an offline game - Day 1
+title: GK Unplugged - Day 1
 date: 2026-09-02T11:40:00
 tags:
   - gacha
-  - goddess-kiss
+  - gk-unplugged
   - json
   - unity
   - csharp
