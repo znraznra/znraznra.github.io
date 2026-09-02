@@ -8,6 +8,8 @@ baseurl: ""                        # leave blank unless served from a subpath
 author: "znra"
 github_username: "znraznra"
 github_repo: "znraznra.github.io"
+timezone: Asia/Manila
+future: true
 
 # ------------------------------------------------------------------
 # Build settings — leave as-is unless you know why you're changing it
