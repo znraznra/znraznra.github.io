@@ -11,7 +11,7 @@ backend:
 
 # Drafts go through a pull request before they hit `main`, so nothing
 # reaches the live site until you approve/merge it.
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
