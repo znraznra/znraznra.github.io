@@ -10,11 +10,16 @@ design, themed to a custom palette with Helvetica Neue throughout.
 ```
 _config.yml           Site settings — title, description, author, etc.
 _layouts/              default.html, post.html, page.html
-_includes/              head.html, navbar.html, footer.html
+_includes/              head.html, navbar.html, footer.html, sidebar.html
 _posts/                 Blog posts (Markdown, one file per post)
 _pages/                 Static pages (About, etc.) — a Jekyll collection
+tags/index.html        Tag archive page (client-side filtered)
 assets/css/style.css   Theme: palette, typography, responsive layout
 assets/js/main.js      Navbar burger-menu toggle (Bulma 1.x ships no JS)
+assets/js/search.js    Header search box
+assets/js/calendar.js  Sidebar calendar widget
+assets/js/tags.js      Tag archive page logic
+assets/posts.json      Build-time generated post index the JS widgets fetch
 admin/                 Sveltia CMS: index.html + config.yml
 .github/workflows/     GitHub Actions build + deploy to Pages
 ```
@@ -78,21 +83,63 @@ that — see `oauth-worker/README.md`. Not needed for a single-author blog.
 
 ## Design notes
 
-- **Palette:** main `#2788a0`, contrast `#16242f`, background `#f9f8f7`.
-  Bulma 1.x reads color from HSL CSS custom properties at runtime, so
+- **Palette and roles:** main `#2788a0` is used for the header, footer, all
+  headings (h1–h6), and hyperlinks. Contrast `#16242f` is the body text
+  color. Highlight `#f9f8f7` is the page background, and is also what's
+  used for text/icons sitting on top of the main-colored header and
+  footer (so it always reads clearly against that background). Bulma 1.x
+  reads color from HSL CSS custom properties at runtime, so
   `assets/css/style.css` sets those directly (`--bulma-primary-h/s/l`,
   etc.) rather than requiring a Sass build step — the whole site runs off
   the Bulma CDN build.
 - **Type:** Helvetica Neue only, at a couple of weights/sizes for
   hierarchy — no second typeface.
-- **Layout:** dark navbar/footer bookend a warm off-white content area;
-  the homepage lists posts as hairline-divided entries rather than a card
-  grid, and single-post pages cap body text around 42rem for a readable
-  line length.
-- **Responsive:** Bulma's grid and navbar burger handle small screens;
-  custom rules add a couple of mobile-specific type-scale tweaks. Test at
-  a few widths after you add your own content, especially anything with
-  images.
+- **Layout:** the header is `position: sticky` (stays visible while
+  scrolling, never hides), and the whole page is a flex column sized to
+  at least the viewport height, so the footer sits at the bottom of the
+  screen on short pages instead of floating up under the content.
+  Every page (home, posts, and static pages) has a left sidebar with a
+  calendar, recent posts, and a tag cloud — see "The sidebar and search"
+  below. The homepage lists posts as hairline-divided entries rather than
+  a card grid, and single-post pages cap body text around 42rem for a
+  readable line length.
+- **Responsive:** the sidebar sits to the left of the content on wider
+  screens and stacks below it on narrow ones (under ~900px), with the
+  main content appearing first in that stacked order. Bulma's navbar
+  burger handles the nav menu on small screens. Test at a few widths
+  after you add your own content, especially anything with images.
+
+## The sidebar and search
+
+Since this is a static site with no backend, the calendar, search box, and
+tag archive all work by fetching one build-time-generated file,
+`assets/posts.json` (a JSON array of every post's title, URL, date, tags,
+and excerpt — regenerated automatically on every build), and filtering it
+in the browser with plain JavaScript. No database, no search service, no
+extra build step beyond the Jekyll build you already have.
+
+- **Calendar** (`assets/js/calendar.js`) — a mini month calendar in the
+  sidebar. Days with at least one post are highlighted and clickable;
+  clicking a day shows that day's most recent posts (up to 3) underneath.
+  It opens on the month of your most recent post so it's never blank.
+- **Recent posts** — the last 5 posts, rendered directly by Jekyll (no
+  JS needed for this one).
+- **Popular tags** — every tag, ranked by how many posts use it, rendered
+  directly by Jekyll. Clicking one goes to `/tags/?tag=<name>`.
+- **Tag archive** (`tags/index.html` + `assets/js/tags.js`) — reads the
+  `?tag=` from the URL and lists every matching post. With no `?tag=` at
+  all, it shows a full tag index instead.
+- **Search** (`assets/js/search.js`) — a live dropdown under the header
+  search box, matching against post titles, tags, and excerpts as you
+  type (2+ characters). It's a plain substring match, not fuzzy search —
+  fine for a personal blog's post count; if this ever grows into
+  hundreds of posts and matching gets noisy, swapping in a proper search
+  index (e.g. Lunr.js) later is a drop-in replacement for just this file.
+
+If you ever rename `_pages/about.md`'s permalink or add new nav items,
+the sidebar/search markup lives in `_includes/sidebar.html` and
+`_includes/navbar.html` — edit those directly, no build step required
+beyond the usual push.
 
 ## Local preview
 

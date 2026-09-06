@@ -17,4 +17,10 @@
 
   <!-- Site theme -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <script>
+    // Consumed by the sidebar/search/tag-archive widgets so their fetch()
+    // calls work whether the site is served at the domain root or a subpath.
+    window.SITE_BASEURL = {{ site.baseurl | jsonify }};
+  </script>
 </head>

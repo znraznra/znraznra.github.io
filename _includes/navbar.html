@@ -2,7 +2,15 @@
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item site-brand" href="{{ '/' | relative_url }}">
-        {{ site.title }}
+        <span class="site-logo" aria-hidden="true">
+          <!-- Logo placeholder — swap this span for an <img> tag pointing at
+               your real logo file whenever you have one. -->
+          <svg viewBox="0 0 32 32" width="28" height="28" role="presentation">
+            <rect width="32" height="32" rx="7" fill="currentColor" fill-opacity="0.16"/>
+            <circle cx="16" cy="16" r="7" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="site-brand-text">{{ site.title }}</span>
       </a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="siteNavMenu" id="siteNavBurger">
@@ -14,6 +22,20 @@
 
     <div id="siteNavMenu" class="navbar-menu">
       <div class="navbar-end">
+        <div class="navbar-item site-search">
+          <div class="site-search-box">
+            <input
+              type="search"
+              id="siteSearchInput"
+              class="site-search-input"
+              placeholder="Search posts…"
+              aria-label="Search posts"
+              autocomplete="off"
+            >
+            <div id="siteSearchResults" class="site-search-results" hidden></div>
+          </div>
+        </div>
+
         <a class="navbar-item" href="{{ '/' | relative_url }}">Home</a>
         <a class="navbar-item" href="{{ '/about/' | relative_url }}">About</a>
         <a class="navbar-item" href="{{ '/feed.xml' | relative_url }}">RSS</a>

@@ -1,24 +1,28 @@
 /* ==========================================================================
    Theme tokens
-   Palette: main #2788a0 (teal) · contrast #16242f (deep navy) · hue #f9f8f7 (warm off-white)
+   Palette: main #2788a0 (teal) · contrast #16242f (deep navy) · highlight #f9f8f7 (warm off-white)
+
+   Roles:
+     - main       -> header, footer, all headings (h1-h6), hyperlinks
+     - contrast   -> body text
+     - highlight  -> body background, and text/elements shown against a
+                     main-colored background (header/footer content)
+
    Bulma 1.x reads color via HSL custom properties, so we set those directly
    rather than recompiling Sass. https://bulma.io/documentation/customize/concepts/
    ========================================================================== */
 
 :root {
-  /* Our own tokens, for use in the custom rules below */
-  --color-primary:  #2788a0;
-  --color-contrast: #16242f;
-  --color-hue:      #f9f8f7;
-  --color-primary-h: 192deg;
-  --color-primary-s: 61%;
-  --color-primary-l: 39%;
+  --color-primary:   #2788a0; /* "main" */
+  --color-contrast:  #16242f; /* "contrast" */
+  --color-hue:       #f9f8f7; /* "highlight" */
+  --color-highlight: var(--color-hue);
 
   --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   color-scheme: light;
 
-  /* Bulma neutral (grey) ramp — tuned to the warm off-white "hue" color */
+  /* Bulma neutral (grey) ramp — tuned to the warm off-white "highlight" color */
   --bulma-scheme-h: 30deg;
   --bulma-scheme-s: 12%;
   --bulma-light-l: 95%;
@@ -33,7 +37,7 @@
   --bulma-link-s: 61%;
   --bulma-link-l: 34%;
 
-  --bulma-body-background-color: var(--color-hue);
+  --bulma-body-background-color: var(--color-highlight);
   --bulma-body-color: var(--color-contrast);
   --bulma-family-primary: var(--font-body);
 }
@@ -47,7 +51,7 @@
     --bulma-scheme-s: 12%;
     --bulma-light-l: 95%;
     --bulma-dark-l: 15%;
-    --bulma-body-background-color: var(--color-hue);
+    --bulma-body-background-color: var(--color-highlight);
     --bulma-body-color: var(--color-contrast);
   }
 }
@@ -70,13 +74,13 @@ html, body,
 }
 
 body {
-  background-color: var(--color-hue);
+  background-color: var(--color-highlight);
   color: var(--color-contrast);
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--color-contrast);
+  color: var(--color-primary);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -89,45 +93,76 @@ a:hover {
   color: var(--color-contrast);
 }
 
-main {
-  min-height: 60vh;
+/* ==========================================================================
+   Full-viewport-height shell — header sticky, footer always at the bottom
+   of the viewport even on short pages.
+   ========================================================================== */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-shell {
+  flex: 1 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.site-footer {
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
-   Navbar — the one bold, dark anchor element on the page
+   Navbar — sticky, main-colored, the one bold anchor element on the page
    ========================================================================== */
 
 .site-navbar {
-  background-color: var(--color-contrast);
+  background-color: var(--color-primary);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 
 .site-navbar .site-brand {
-  color: var(--color-hue);
+  color: var(--color-highlight);
   font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.site-navbar .site-logo {
+  display: inline-flex;
+  color: var(--color-highlight);
 }
 
 .site-navbar .site-brand:hover {
-  color: var(--color-primary);
+  color: var(--color-contrast);
   background-color: transparent;
 }
 
 .site-navbar .navbar-item,
 .site-navbar .navbar-link {
-  color: var(--color-hue);
+  color: var(--color-highlight);
   background-color: transparent;
 }
 
 .site-navbar .navbar-item:hover,
 .site-navbar .navbar-link:hover {
-  color: var(--color-primary);
+  color: var(--color-contrast);
   background-color: transparent;
 }
 
 .site-navbar .navbar-burger {
-  color: var(--color-hue);
+  color: var(--color-highlight);
 }
 
 .site-navbar .navbar-burger span {
@@ -136,14 +171,325 @@ main {
 }
 
 .site-navbar .navbar-burger:hover {
-  color: var(--color-primary);
+  color: var(--color-contrast);
   background-color: transparent;
 }
 
 @media screen and (max-width: 1023px) {
   .site-navbar .navbar-menu {
-    background-color: var(--color-contrast);
+    background-color: var(--color-primary);
   }
+}
+
+/* ---- Search box (in navbar) ---- */
+
+.site-search {
+  position: relative;
+  flex-grow: 0;
+}
+
+.site-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.site-search-input {
+  width: 100%;
+  min-width: 220px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(249, 248, 247, 0.35);
+  background-color: rgba(249, 248, 247, 0.12);
+  color: var(--color-highlight);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+.site-search-input::placeholder {
+  color: rgba(249, 248, 247, 0.7);
+}
+
+.site-search-input:focus {
+  outline: none;
+  border-color: var(--color-highlight);
+  background-color: rgba(249, 248, 247, 0.18);
+}
+
+.site-search-results {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background-color: var(--color-highlight);
+  color: var(--color-contrast);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(22, 36, 47, 0.2);
+  padding: 0.5rem 0;
+  z-index: 50;
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.site-search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-search-results li {
+  border-bottom: 1px solid hsl(30deg, 12%, 90%);
+}
+
+.site-search-results li:last-child {
+  border-bottom: none;
+}
+
+.site-search-results a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--color-contrast);
+  font-size: 0.9375rem;
+}
+
+.site-search-results a:hover {
+  background-color: hsl(30deg, 14%, 95%);
+  color: var(--color-primary);
+}
+
+.site-search-empty {
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  color: hsl(206deg, 12%, 48%);
+}
+
+@media screen and (max-width: 1023px) {
+  .site-search-input {
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   Two-column shell: sidebar + main content.
+   Grid (not Bulma columns) so we control stacking order explicitly on mobile.
+   ========================================================================== */
+
+.site-columns {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media screen and (max-width: 900px) {
+  .site-columns {
+    grid-template-columns: 1fr;
+  }
+  .sidebar-column {
+    order: 2;
+  }
+  .main-column {
+    order: 1;
+  }
+}
+
+/* ==========================================================================
+   Sidebar — calendar, recent posts, popular tags
+   ========================================================================== */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: sticky;
+  top: 5.5rem; /* clears the sticky navbar */
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    position: static;
+  }
+}
+
+.sidebar-section {
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid hsl(30deg, 12%, 88%);
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.sidebar-heading {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-subheading {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-contrast);
+  margin: 0.9rem 0 0.4rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-list li {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.sidebar-list a {
+  color: var(--color-primary);
+}
+
+.sidebar-list-date {
+  font-size: 0.75rem;
+  color: hsl(206deg, 12%, 52%);
+}
+
+.sidebar-empty {
+  font-size: 0.875rem;
+  color: hsl(206deg, 12%, 52%);
+  list-style: none;
+}
+
+/* ---- Calendar widget ---- */
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.calendar-month-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-contrast);
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+}
+
+.calendar-nav-btn:hover {
+  background-color: hsl(30deg, 14%, 92%);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: hsl(206deg, 12%, 55%);
+  margin-bottom: 0.25rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.calendar-cell {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.calendar-cell-blank {
+  background: none;
+}
+
+.calendar-cell-day {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-contrast);
+  font-family: var(--font-body);
+}
+
+.calendar-cell-day:hover {
+  background-color: hsl(30deg, 14%, 90%);
+}
+
+.calendar-cell-day.has-posts {
+  background-color: hsl(192deg, 55%, 90%);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.calendar-cell-day.has-posts:hover {
+  background-color: hsl(192deg, 55%, 84%);
+}
+
+.calendar-cell-day.is-selected {
+  background-color: var(--color-primary);
+  color: var(--color-highlight);
+}
+
+.calendar-day-posts {
+  margin-top: 0.75rem;
+}
+
+/* ---- Tag cloud ---- */
+
+.tag-cloud {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: hsl(192deg, 55%, 93%);
+  color: var(--color-primary);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.tag-pill:hover {
+  background-color: var(--color-primary);
+  color: var(--color-highlight);
+}
+
+.tag-pill-count {
+  font-size: 0.6875rem;
+  opacity: 0.75;
+}
+
+.tag-cloud-full .tag-pill {
+  font-size: 0.875rem;
 }
 
 /* ==========================================================================
@@ -157,7 +503,6 @@ main {
 .hero-intro-title {
   font-size: 2.25rem;
   font-weight: 700;
-  color: var(--color-contrast);
   margin-bottom: 0.5rem;
 }
 
@@ -179,6 +524,9 @@ main {
 
 .post-list-wrap {
   max-width: 46rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .post-list-item {
@@ -200,14 +548,6 @@ main {
   font-size: 1.5rem;
   line-height: 1.3;
   margin-bottom: 0.5rem;
-}
-
-.post-list-title a {
-  color: var(--color-contrast);
-}
-
-.post-list-title a:hover {
-  color: var(--color-primary);
 }
 
 .post-list-excerpt {
@@ -252,7 +592,7 @@ main {
 }
 
 .tag-label {
-  color: hsl(206deg, 12%, 48%);
+  color: var(--color-primary);
 }
 
 .post-content {
@@ -286,7 +626,7 @@ main {
 
 .post-content pre {
   background-color: var(--color-contrast);
-  color: var(--color-hue);
+  color: var(--color-highlight);
   padding: 1rem 1.25rem;
   border-radius: 6px;
   overflow-x: auto;
@@ -314,12 +654,20 @@ main {
 }
 
 /* ==========================================================================
+   Tag archive page
+   ========================================================================== */
+
+.tag-archive {
+  max-width: 46rem;
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 
 .site-footer {
-  background-color: var(--color-contrast);
-  color: hsl(30deg, 8%, 78%);
+  background-color: var(--color-primary);
+  color: var(--color-highlight);
   padding: 2.5rem 1.5rem;
 }
 
@@ -329,11 +677,11 @@ main {
 }
 
 .site-footer a {
-  color: hsl(30deg, 8%, 88%);
+  color: var(--color-highlight);
 }
 
 .site-footer a:hover {
-  color: var(--color-primary);
+  color: var(--color-contrast);
 }
 
 .site-footer-dot {
@@ -347,9 +695,14 @@ main {
 a:focus-visible,
 button:focus-visible,
 .navbar-burger:focus-visible,
-.button:focus-visible {
+.button:focus-visible,
+.calendar-cell-day:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.site-navbar :focus-visible {
+  outline-color: var(--color-highlight);
 }
 
 @media (prefers-reduced-motion: reduce) {

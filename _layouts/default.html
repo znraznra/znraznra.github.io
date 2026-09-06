@@ -4,12 +4,25 @@
 <body>
   {% include navbar.html %}
 
-  <main>
-    {{ content }}
-  </main>
+  <div class="site-shell">
+    <div class="container site-shell-inner">
+      <div class="site-columns">
+        <div class="sidebar-column">
+          {% include sidebar.html %}
+        </div>
+        <div class="main-column">
+          <main>
+            {{ content }}
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {% include footer.html %}
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/calendar.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
 </body>
 </html>

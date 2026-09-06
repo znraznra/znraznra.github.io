@@ -1,0 +1,59 @@
+<aside class="sidebar" aria-label="Blog navigation">
+
+  <div class="sidebar-section calendar-widget" id="calendarWidget">
+    <div class="calendar-header">
+      <button type="button" class="calendar-nav-btn" id="calPrevBtn" aria-label="Previous month">&larr;</button>
+      <span class="calendar-month-label" id="calMonthLabel">&nbsp;</span>
+      <button type="button" class="calendar-nav-btn" id="calNextBtn" aria-label="Next month">&rarr;</button>
+    </div>
+    <div class="calendar-weekdays" aria-hidden="true">
+      <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+    </div>
+    <div class="calendar-grid" id="calendarGrid" role="grid" aria-label="Post calendar"></div>
+
+    <div class="calendar-day-posts">
+      <h3 class="sidebar-subheading" id="calendarDayLabel">Posts</h3>
+      <ul class="sidebar-list" id="calendarDayPosts">
+        <li class="sidebar-empty">Loading&hellip;</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h2 class="sidebar-heading">Recent Posts</h2>
+    <ul class="sidebar-list">
+      {% for post in site.posts limit: 5 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="sidebar-list-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </li>
+      {% else %}
+        <li class="sidebar-empty">No posts yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="sidebar-section">
+    <h2 class="sidebar-heading">Popular Tags</h2>
+    {%- assign tag_words = "" -%}
+    {%- for tag in site.tags -%}
+      {%- assign padded_count = tag[1].size | plus: 10000 -%}
+      {%- assign tag_words = tag_words | append: padded_count | append: '#' | append: tag[0] | append: ',' -%}
+    {%- endfor -%}
+    {%- assign tag_words = tag_words | split: ',' | sort | reverse -%}
+    <ul class="tag-cloud">
+      {% for word in tag_words limit: 12 %}
+        {% assign parts = word | split: '#' %}
+        {% assign tag_count = parts[0] | minus: 10000 %}
+        <li>
+          <a class="tag-pill" href="{{ '/tags/' | relative_url }}?tag={{ parts[1] | url_encode }}">
+            {{ parts[1] }} <span class="tag-pill-count">{{ tag_count }}</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="sidebar-empty">No tags yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</aside>
