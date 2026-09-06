@@ -16,9 +16,10 @@ github_repo: "znraznra.github.io"
 footer_links:
   - name: "Youtube"
     url: "https://youtube.com/@mellyexe"
-  - name: "Patreon"
+  - name: "Be a Patron"
     url: "https://patreon.com/mellyexe"
-
+  - name: "Buy me a coffee"
+    url: "https://patreon.com/mellyexe"
 # ------------------------------------------------------------------
 # Build settings — leave as-is unless you know why you're changing it
 # ------------------------------------------------------------------
