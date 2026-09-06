@@ -80,30 +80,28 @@
     indexEl.appendChild(ul);
   }
 
-  fetch(base + "/assets/posts.json")
-    .then(function (res) { return res.json(); })
-    .then(function (posts) {
-      if (!tag) {
-        titleEl.textContent = "Browse by tag";
-        renderTagIndex(posts);
-        return;
-      }
+  var dataEl = document.getElementById("postsData");
+  var posts = [];
+  try {
+    posts = dataEl ? JSON.parse(dataEl.textContent) : [];
+  } catch (err) {
+    console.error("Could not parse post data for the tag archive:", err);
+  }
 
-      titleEl.textContent = "Posts tagged \u201c" + tag + "\u201d";
-      var q = tag.toLowerCase();
-      var matches = posts.filter(function (post) {
-        return (post.tags || []).some(function (t) { return t.toLowerCase() === q; });
-      });
-
-      if (matches.length === 0) {
-        emptyEl.hidden = false;
-      } else {
-        renderPostList(matches);
-      }
-    })
-    .catch(function () {
-      titleEl.textContent = "Tags";
-      emptyEl.textContent = "Couldn't load posts.";
-      emptyEl.hidden = false;
+  if (!tag) {
+    titleEl.textContent = "Browse by tag";
+    renderTagIndex(posts);
+  } else {
+    titleEl.textContent = "Posts tagged \u201c" + tag + "\u201d";
+    var q = tag.toLowerCase();
+    var matches = posts.filter(function (post) {
+      return (post.tags || []).some(function (t) { return t.toLowerCase() === q; });
     });
+
+    if (matches.length === 0) {
+      emptyEl.hidden = false;
+    } else {
+      renderPostList(matches);
+    }
+  }
 })();

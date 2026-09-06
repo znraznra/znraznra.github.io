@@ -118,11 +118,11 @@ body {
 }
 
 /* ==========================================================================
-   Navbar — sticky, main-colored, the one bold anchor element on the page
+   Navbar — sticky, deep-navy header, the one bold anchor element on the page
    ========================================================================== */
 
 .site-navbar {
-  background-color: var(--color-primary);
+  background-color: var(--color-contrast);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
@@ -145,7 +145,7 @@ body {
 }
 
 .site-navbar .site-brand:hover {
-  color: var(--color-contrast);
+  color: var(--color-primary);
   background-color: transparent;
 }
 
@@ -157,7 +157,7 @@ body {
 
 .site-navbar .navbar-item:hover,
 .site-navbar .navbar-link:hover {
-  color: var(--color-contrast);
+  color: var(--color-primary);
   background-color: transparent;
 }
 
@@ -171,13 +171,13 @@ body {
 }
 
 .site-navbar .navbar-burger:hover {
-  color: var(--color-contrast);
+  color: var(--color-primary);
   background-color: transparent;
 }
 
 @media screen and (max-width: 1023px) {
   .site-navbar .navbar-menu {
-    background-color: var(--color-primary);
+    background-color: var(--color-contrast);
   }
 }
 

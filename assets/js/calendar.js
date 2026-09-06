@@ -69,7 +69,6 @@
   function selectDay(dayKey) {
     selectedDayKey = dayKey;
 
-    // Update selection styling without a full re-render
     var cells = grid.querySelectorAll(".calendar-cell-day");
     cells.forEach(function (cell) {
       cell.classList.toggle("is-selected", cell.getAttribute("data-day-key") === dayKey);
@@ -126,32 +125,29 @@
     renderGrid();
   });
 
-  var base = window.SITE_BASEURL || "";
-
-  fetch(base + "/assets/posts.json")
-    .then(function (res) { return res.json(); })
-    .then(function (posts) {
-      posts.forEach(function (post) {
-        var key = dayKeyFromIso(post.date);
-        if (!postsByDay.has(key)) postsByDay.set(key, []);
-        postsByDay.get(key).push(post); // already newest-first from Jekyll
-      });
-
-      var initialKey = posts.length > 0 ? dayKeyFromIso(posts[0].date) : todayKey();
-      var initialParts = initialKey.split("-").map(Number);
-      viewYear = initialParts[0];
-      viewMonth = initialParts[1] - 1;
-      selectedDayKey = initialKey;
-
-      renderGrid();
-      renderDayPosts(initialKey);
-    })
-    .catch(function () {
-      var today = todayKey();
-      var parts = today.split("-").map(Number);
-      viewYear = parts[0];
-      viewMonth = parts[1] - 1;
-      renderGrid();
-      dayPostsList.innerHTML = '<li class="sidebar-empty">Couldn\'t load posts.</li>';
+  function init(posts) {
+    posts.forEach(function (post) {
+      var key = dayKeyFromIso(post.date);
+      if (!postsByDay.has(key)) postsByDay.set(key, []);
+      postsByDay.get(key).push(post); // already newest-first from Jekyll
     });
+
+    var initialKey = posts.length > 0 ? dayKeyFromIso(posts[0].date) : todayKey();
+    var initialParts = initialKey.split("-").map(Number);
+    viewYear = initialParts[0];
+    viewMonth = initialParts[1] - 1;
+    selectedDayKey = initialKey;
+
+    renderGrid();
+    renderDayPosts(initialKey);
+  }
+
+  var dataEl = document.getElementById("postsData");
+  var posts = [];
+  try {
+    posts = dataEl ? JSON.parse(dataEl.textContent) : [];
+  } catch (err) {
+    console.error("Could not parse post data for the calendar widget:", err);
+  }
+  init(posts);
 })();

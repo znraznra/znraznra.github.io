@@ -1,5 +1,4 @@
----
----
+{%- capture posts_json -%}
 [
 {%- for post in site.posts -%}
   {
@@ -11,3 +10,5 @@
   }{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ]
+{%- endcapture -%}
+<script type="application/json" id="postsData">{{ posts_json | replace: '</script', '<\/script' }}</script>

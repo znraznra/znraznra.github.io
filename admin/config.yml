@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: znraznra/znraznra.github.io     # GitHub "owner/repo"
+  repo: yourusername/your-repo     # GitHub "owner/repo"
   branch: main
   # No base_url here on purpose. With none set, Sveltia's sign-in screen
   # offers a "personal access token" option — since you're the only editor,
@@ -11,7 +11,7 @@ backend:
 
 # Drafts go through a pull request before they hit `main`, so nothing
 # reaches the live site until you approve/merge it.
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"

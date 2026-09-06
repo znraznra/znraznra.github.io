@@ -10,7 +10,8 @@ design, themed to a custom palette with Helvetica Neue throughout.
 ```
 _config.yml           Site settings — title, description, author, etc.
 _layouts/              default.html, post.html, page.html
-_includes/              head.html, navbar.html, footer.html, sidebar.html
+_includes/              head.html, navbar.html, footer.html, sidebar.html,
+                         posts-data.html (embeds the post index as JSON)
 _posts/                 Blog posts (Markdown, one file per post)
 _pages/                 Static pages (About, etc.) — a Jekyll collection
 tags/index.html        Tag archive page (client-side filtered)
@@ -19,7 +20,6 @@ assets/js/main.js      Navbar burger-menu toggle (Bulma 1.x ships no JS)
 assets/js/search.js    Header search box
 assets/js/calendar.js  Sidebar calendar widget
 assets/js/tags.js      Tag archive page logic
-assets/posts.json      Build-time generated post index the JS widgets fetch
 admin/                 Sveltia CMS: index.html + config.yml
 .github/workflows/     GitHub Actions build + deploy to Pages
 ```
@@ -37,7 +37,11 @@ on every push to `main`.
 ## 2. Fill in your details
 
 - `_config.yml` — `title`, `description`, `url`, `author`,
-  `github_username`, `github_repo`.
+  `github_username`, `github_repo`, and `footer_links` (a list of
+  `name`/`url` pairs shown as a row of links in the footer — add, remove,
+  or rename entries freely; point them at social profiles, an
+  `mailto:you@yourdomain.com` link, your RSS feed at `/feed.xml`,
+  wherever you like).
 - `admin/config.yml` — `backend.repo` (as `owner/repo`).
 - Swap `assets/images/favicon.svg` for your own mark if you like — it's a
   two-color placeholder using the brand palette.
@@ -83,15 +87,16 @@ that — see `oauth-worker/README.md`. Not needed for a single-author blog.
 
 ## Design notes
 
-- **Palette and roles:** main `#2788a0` is used for the header, footer, all
-  headings (h1–h6), and hyperlinks. Contrast `#16242f` is the body text
-  color. Highlight `#f9f8f7` is the page background, and is also what's
-  used for text/icons sitting on top of the main-colored header and
-  footer (so it always reads clearly against that background). Bulma 1.x
-  reads color from HSL CSS custom properties at runtime, so
-  `assets/css/style.css` sets those directly (`--bulma-primary-h/s/l`,
-  etc.) rather than requiring a Sass build step — the whole site runs off
-  the Bulma CDN build.
+- **Palette and roles:** main `#2788a0` is used for the footer, all
+  headings (h1–h6) in page/post content, and hyperlinks. Contrast
+  `#16242f` is the header background and the body text color. Highlight
+  `#f9f8f7` is the page background, and is also what's used for text/icons
+  sitting on top of the main- or contrast-colored header and footer (so it
+  always reads clearly against those backgrounds). Bulma 1.x reads color
+  from HSL CSS custom properties at runtime, so `assets/css/style.css`
+  sets those directly (`--bulma-primary-h/s/l`, etc.) rather than
+  requiring a Sass build step — the whole site runs off the Bulma CDN
+  build.
 - **Type:** Helvetica Neue only, at a couple of weights/sizes for
   hierarchy — no second typeface.
 - **Layout:** the header is `position: sticky` (stays visible while
@@ -112,11 +117,14 @@ that — see `oauth-worker/README.md`. Not needed for a single-author blog.
 ## The sidebar and search
 
 Since this is a static site with no backend, the calendar, search box, and
-tag archive all work by fetching one build-time-generated file,
-`assets/posts.json` (a JSON array of every post's title, URL, date, tags,
-and excerpt — regenerated automatically on every build), and filtering it
-in the browser with plain JavaScript. No database, no search service, no
-extra build step beyond the Jekyll build you already have.
+tag archive all work off one build-time-generated blob of data: every
+page embeds a `<script type="application/json" id="postsData">` tag
+(rendered by `_includes/posts-data.html`) containing every post's title,
+URL, date, tags, and excerpt. The widgets read that embedded JSON
+directly — no `fetch()` call, no separate file to load, so it works
+identically whether the site is served from your domain, a GitHub Pages
+URL, or opened as a local file. No database, no search service, no extra
+build step beyond the Jekyll build you already have.
 
 - **Calendar** (`assets/js/calendar.js`) — a mini month calendar in the
   sidebar. Days with at least one post are highlighted and clickable;

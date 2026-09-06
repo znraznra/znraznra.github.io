@@ -1,15 +1,23 @@
 # ------------------------------------------------------------------
 # Site settings — edit these
 # ------------------------------------------------------------------
-title: "znra | Blog"
-description: "Experiments, personal projects, and personal ramblings."
-url: "https://znra.fyi"     # your Porkbun domain, no trailing slash
+title: "Your Blog Name"
+description: "A short line about what you write about here."
+url: "https://yourdomain.com"     # your Porkbun domain, no trailing slash
 baseurl: ""                        # leave blank unless served from a subpath
-author: "znra"
-github_username: "znraznra"
-github_repo: "znraznra.github.io"
-timezone: Asia/Manila
-future: true
+author: "Your Name"
+github_username: "yourusername"
+github_repo: "your-repo"
+
+# Shown as a row of links in the footer — name each one however you like,
+# add or remove entries freely, point them wherever you want (social
+# profiles, an email link via "mailto:you@yourdomain.com", your RSS feed
+# at "/feed.xml", etc.).
+footer_links:
+  - name: "Link 1"
+    url: "https://example.com"
+  - name: "Link 2"
+    url: "https://example.com"
 
 # ------------------------------------------------------------------
 # Build settings — leave as-is unless you know why you're changing it
