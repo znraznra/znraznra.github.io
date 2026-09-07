@@ -395,6 +395,15 @@ body {
   background-color: hsl(30deg, 14%, 92%);
 }
 
+.calendar-nav-btn:disabled {
+  color: hsl(206deg, 12%, 75%);
+  cursor: not-allowed;
+}
+
+.calendar-nav-btn:disabled:hover {
+  background-color: transparent;
+}
+
 .calendar-weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -449,6 +458,15 @@ body {
 .calendar-cell-day.is-selected {
   background-color: var(--color-primary);
   color: var(--color-highlight);
+}
+
+.calendar-cell-day.is-future {
+  color: hsl(206deg, 12%, 78%);
+  cursor: not-allowed;
+}
+
+.calendar-cell-day.is-future:hover {
+  background-color: transparent;
 }
 
 .calendar-day-posts {

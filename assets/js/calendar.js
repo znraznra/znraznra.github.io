@@ -34,8 +34,16 @@
     monthLabel.textContent = MONTH_NAMES[viewMonth] + " " + viewYear;
   }
 
+  function updateNavButtons() {
+    var now = new Date();
+    var isCurrentMonth = viewYear === now.getFullYear() && viewMonth === now.getMonth();
+    nextBtn.disabled = isCurrentMonth;
+    nextBtn.setAttribute("aria-disabled", String(isCurrentMonth));
+  }
+
   function renderGrid() {
     renderMonthLabel();
+    updateNavButtons();
     grid.innerHTML = "";
 
     var firstWeekday = new Date(viewYear, viewMonth, 1).getDay();
@@ -50,17 +58,26 @@
     for (var day = 1; day <= daysInMonth; day++) {
       var dayKey = viewYear + "-" + pad(viewMonth + 1) + "-" + pad(day);
       var hasPosts = postsByDay.has(dayKey);
+      var isFuture = dayKey > todayKey(); // "YYYY-MM-DD" strings compare chronologically
 
       var cell = document.createElement("button");
       cell.type = "button";
-      cell.className = "calendar-cell calendar-cell-day" + (hasPosts ? " has-posts" : "") + (dayKey === selectedDayKey ? " is-selected" : "");
+      cell.className = "calendar-cell calendar-cell-day"
+        + (hasPosts ? " has-posts" : "")
+        + (dayKey === selectedDayKey ? " is-selected" : "")
+        + (isFuture ? " is-future" : "");
       cell.textContent = String(day);
       cell.setAttribute("data-day-key", dayKey);
       cell.setAttribute("aria-label", MONTH_NAMES[viewMonth] + " " + day + ", " + viewYear + (hasPosts ? " — has posts" : ""));
 
-      cell.addEventListener("click", function () {
-        selectDay(this.getAttribute("data-day-key"));
-      });
+      if (isFuture) {
+        cell.disabled = true;
+        cell.setAttribute("aria-disabled", "true");
+      } else {
+        cell.addEventListener("click", function () {
+          selectDay(this.getAttribute("data-day-key"));
+        });
+      }
 
       grid.appendChild(cell);
     }
