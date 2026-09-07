@@ -132,7 +132,7 @@
       postsByDay.get(key).push(post); // already newest-first from Jekyll
     });
 
-    var initialKey = posts.length > 0 ? dayKeyFromIso(posts[0].date) : todayKey();
+    var initialKey = todayKey();
     var initialParts = initialKey.split("-").map(Number);
     viewYear = initialParts[0];
     viewMonth = initialParts[1] - 1;
