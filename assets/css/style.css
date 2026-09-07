@@ -320,6 +320,24 @@ body {
   padding-bottom: 0;
 }
 
+.sidebar-promo {
+  line-height: 0; /* removes the small inline-image gap under the link */
+}
+
+.sidebar-promo a {
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.sidebar-promo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 6px;
+}
+
 .sidebar-heading {
   font-size: 0.9375rem;
   font-weight: 700;
