@@ -5,10 +5,7 @@
         <span class="site-logo" aria-hidden="true">
           <!-- Logo placeholder — swap this span for an <img> tag pointing at
                your real logo file whenever you have one. -->
-          <svg viewBox="0 0 32 32" width="28" height="28" role="presentation">
-            <rect width="32" height="32" rx="7" fill="currentColor" fill-opacity="0.16"/>
-            <circle cx="16" cy="16" r="7" fill="currentColor"/>
-          </svg>
+          <img src="{{ '/assets/images/favicon.svg' | relative_url }}" alt="{{ site.title }}" height="28">
         </span>
         <span class="site-brand-text">{{ site.title }}</span>
       </a>
@@ -38,7 +35,7 @@
 
         <a class="navbar-item" href="{{ '/' | relative_url }}">Home</a>
         <a class="navbar-item" href="{{ '/about/' | relative_url }}">About</a>
-        <a class="navbar-item" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        <!-- a class="navbar-item" href="{{ '/feed.xml' | relative_url }}">RSS</a -->
       </div>
     </div>
   </div>
