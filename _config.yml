@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------
 # Site settings — edit these
 # ------------------------------------------------------------------
-title: "Znra | Blog"
+title: "Znra's Blog"
 description: "Personal projects, experiments, ramblings, and so on."
 url: "https://blog.znra.fyi"     # your Porkbun domain, no trailing slash
 baseurl: ""                        # leave blank unless served from a subpath
