@@ -63,3 +63,12 @@ exclude:
   - vendor
 
 show_drafts: false
+
+# Without these, Jekyll reads any post date with no timezone offset as UTC.
+# Since posts are written in Manila time, that mismatch can make a
+# same-day post look like it's "in the future" until real UTC time
+# catches up — and future-dated posts are silently excluded from the
+# build by default. This fixes that permanently.
+timezone: Asia/Manila
+future: true
+
