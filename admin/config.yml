@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: yourusername/your-repo     # GitHub "owner/repo"
+  repo: znraznra/znraznra.github.io     # GitHub "owner/repo"
   branch: main
   # No base_url here on purpose. With none set, Sveltia's sign-in screen
   # offers a "personal access token" option — since you're the only editor,
