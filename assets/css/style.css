@@ -93,6 +93,11 @@ a:hover {
   color: var(--color-contrast);
 }
 
+strong, b {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
 /* ==========================================================================
    Full-viewport-height shell — header sticky, footer always at the bottom
    of the viewport even on short pages.
@@ -686,6 +691,63 @@ body {
 @media screen and (max-width: 768px) {
   .post-title {
     font-size: 1.75rem;
+  }
+}
+
+/* ---- Previous/next post navigation ---- */
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid hsl(30deg, 12%, 88%);
+}
+
+.post-nav-item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.post-nav-next {
+  text-align: right;
+}
+
+.post-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.post-nav-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: hsl(206deg, 12%, 48%);
+}
+
+.post-nav-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.post-nav a:hover .post-nav-title {
+  color: var(--color-contrast);
+}
+
+@media screen and (max-width: 600px) {
+  .post-nav {
+    flex-direction: column;
+  }
+
+  .post-nav-next {
+    text-align: left;
   }
 }
 

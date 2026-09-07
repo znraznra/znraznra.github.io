@@ -23,5 +23,31 @@ layout: default
       {{ content }}
     </div>
 
+    <nav class="post-nav" aria-label="Post navigation">
+      {%- comment -%}
+        Jekyll's page.previous/page.next are based on position in the
+        site.posts array, which is sorted newest-first — so page.previous
+        is actually the newer post and page.next is the older one. Mapped
+        explicitly below so "Previous" always means the older post and
+        "Next" always means the newer one, matching normal reading order.
+      {%- endcomment -%}
+      <div class="post-nav-item post-nav-prev">
+        {% if page.next %}
+          <a href="{{ page.next.url | relative_url }}">
+            <span class="post-nav-label">&larr; Previous</span>
+            <span class="post-nav-title">{{ page.next.title }}</span>
+          </a>
+        {% endif %}
+      </div>
+      <div class="post-nav-item post-nav-next">
+        {% if page.previous %}
+          <a href="{{ page.previous.url | relative_url }}">
+            <span class="post-nav-label">Next &rarr;</span>
+            <span class="post-nav-title">{{ page.previous.title }}</span>
+          </a>
+        {% endif %}
+      </div>
+    </nav>
+
   </div>
 </article>
