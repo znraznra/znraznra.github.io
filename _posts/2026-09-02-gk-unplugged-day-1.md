@@ -1,5 +1,5 @@
 ---
-title: GK Unplugged - Day 1
+title: GK Unplugged - Project Start
 date: 2026-09-02T11:40:00
 tags:
   - gk-unplugged
