@@ -1,11 +1,11 @@
 ---
-title: GK Unplugged - Day 4
+title: GK Unplugged - Redoing everything
 date: 2026-09-07T17:43:00
 tags:
   - unity
   - csharp
   - json
-excerpt: Starting over again...
+excerpt: Starting over again and creating a private git to prevent these issues.
 ---
 
 Okay. Back to square one, I guess...
