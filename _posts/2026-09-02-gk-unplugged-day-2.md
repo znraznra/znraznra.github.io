@@ -1,5 +1,5 @@
 ---
-title: GK Unplugged - Day 2
+title: GK Unplugged - Decompiling and debugging
 date: 2026-09-02T18:17:00
 tags:
   - gk-unplugged
