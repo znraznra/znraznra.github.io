@@ -1,5 +1,5 @@
 ---
-title: GK Unplugged - Decompiling and debugging
+title: GK Unplugged - Debugging the project
 date: 2026-09-02T18:17:00
 tags:
   - gk-unplugged
