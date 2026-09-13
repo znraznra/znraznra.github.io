@@ -1,5 +1,5 @@
 ---
-title: GK Unplugged - Day 5 - Starting Over, Smarter
+title: GK Unplugged - Starting Over, Smarter
 date: 2026-09-13T17:24:00
 tags:
   - gk-unplugged
