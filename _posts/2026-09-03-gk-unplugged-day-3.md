@@ -1,5 +1,5 @@
 ---
-title: GK Unplugged - Day 3
+title: GK Unplugged - Bad news
 date: 2026-09-04T06:24:00
 tags:
   - gk-unplugged
