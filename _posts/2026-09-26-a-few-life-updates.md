@@ -8,9 +8,7 @@ tags:
 excerpt: I've been inactive for a few days due to a lot of things, and I'd like to share what took most of my time as of late.
 ---
 
-![Chiikawa GIFs | GIFDB.com](/assets/images/uploads/20260926-170033.png)
-
-
+![](/assets/images/uploads/20260926-170033.png)
 
 Lately I've been in a slump since starting the reverse engineering project. Sickness, financial stress, and multiple factors had gotten in the way of doing work with it. I didn't like how it turned out to be an "only good in the first act" thing for me, when I clearly wanted to invest more time on it than doing other things aside work, but enough excuses for today. Here's what I'm currently up to.
 
