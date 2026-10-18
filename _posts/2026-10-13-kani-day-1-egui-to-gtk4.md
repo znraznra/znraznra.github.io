@@ -1,5 +1,5 @@
 ---
-title: "Day 1: egui, broken drag and drop, and jumping ship to GTK4"
+title: 'Day 1: egui, broken drag and drop, and jumping ship to GTK4'
 date: 2026-10-13T23:30:00
 tags:
   - kani
@@ -8,8 +8,8 @@ tags:
   - gstreamer
   - egui
   - devlog
-excerpt: "The first foundation of the editor went fine. The first UI didn't. Why I threw out egui halfway through Phase 2 and rebuilt on GTK4 + GStreamer."
-published: false
+excerpt: The first foundation of the editor went fine. The first UI didn't. Why I threw out egui halfway through Phase 2 and rebuilt on GTK4 + GStreamer.
+published: true
 ---
 
 Phase 1 was the boring-but-important part. The timeline model, the project folder format, and the platform contracts. Nothing to look at, just tests.
