@@ -9,8 +9,8 @@ tags:
   - open-source
   - clean-room
   - devlog
-excerpt: "Why I'm writing my own short-form video editor in Rust, what it has to do, what it will never do, and how I planned it before writing a single line of code."
-published: false
+excerpt: Why I'm writing my own short-form video editor in Rust, what it has to do, what it will never do, and how I planned it before writing a single line of code.
+published: true
 ---
 
 ![Kani cover](/assets/images/uploads/kani/kani-cover.png)
