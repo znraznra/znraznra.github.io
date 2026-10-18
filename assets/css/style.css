@@ -90,6 +90,13 @@ h1, h2, h3, h4, h5, h6 {
    Point it at the main colour so every h1-h6 in a post is teal too. */
 .content {
   --bulma-content-heading-color: var(--color-primary);
+  --bulma-content-table-cell-heading-color: var(--color-primary);
+  --bulma-content-table-head-cell-color: var(--color-primary);
+}
+
+/* Table header cells count as headings: main colour too. */
+th {
+  color: var(--color-primary);
 }
 
 a {
@@ -103,6 +110,17 @@ a:hover {
 strong, b {
   color: var(--color-primary);
   font-weight: 700;
+}
+
+/* Bold text sitting on a dark or main-coloured background keeps that
+   background's text colour, so it doesn't vanish (teal on teal). */
+.site-navbar strong, .site-navbar b {
+  color: var(--color-highlight);
+}
+
+.site-footer strong, .site-footer b,
+.post-content pre strong, .post-content pre b {
+  color: inherit;
 }
 
 /* ==========================================================================
@@ -407,7 +425,7 @@ body {
 .calendar-month-label {
   font-size: 0.9375rem;
   font-weight: 700;
-  color: var(--color-contrast);
+  color: var(--color-primary);
 }
 
 .calendar-nav-btn {
@@ -440,7 +458,7 @@ body {
   text-align: center;
   font-size: 0.6875rem;
   font-weight: 700;
-  color: hsl(206deg, 12%, 55%);
+  color: var(--color-primary);
   margin-bottom: 0.25rem;
 }
 
@@ -730,7 +748,7 @@ body {
 .post-nav-label {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: hsl(206deg, 12%, 48%);
+  color: var(--color-primary);
 }
 
 .post-nav-title {
