@@ -1,5 +1,5 @@
 ---
-title: "The Export window that kept coming back from the dead"
+title: The Export window that kept coming back from the dead
 date: 2026-10-15T21:30:00
 tags:
   - kani
@@ -8,8 +8,8 @@ tags:
   - debugging
   - export
   - devlog
-excerpt: "Phase 5 finally started. Export worked on the first try, but the window greyed out my screen and later refused to close. The cause was a Rust reference cycle."
-published: false
+excerpt: Phase 5 finally started. Export worked on the first try, but the window greyed out my screen and later refused to close. The cause was a Rust reference cycle.
+published: true
 ---
 
 Back to Phase 5. Export.
