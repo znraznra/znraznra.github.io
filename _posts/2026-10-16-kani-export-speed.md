@@ -9,8 +9,8 @@ tags:
   - opengl
   - va-api
   - devlog
-excerpt: "A 3:54 vertical project took 6 minutes to render. Fourteen builds later it takes under a minute. The encoder was never the problem."
-published: false
+excerpt: A 3:54 vertical project took 6 minutes to render. Fourteen builds later it takes under a minute. The encoder was never the problem.
+published: true
 ---
 
 My test project is a real one: 3 minutes 54 seconds, vertical 1080x1920 at 30 fps. Two video clips, an image, generated captions, a bunch of text layers, 7 video tracks, and some layers with skew and perspective on them.
