@@ -7,6 +7,7 @@ tags:
   - json
   - csharp
 excerpt: Just had the time to get back to this. Documenting what I've done so far.
+published: true
 ---
 
 Today was a restart day. A while back, a broad, automated GUID-relinking pass (meant to fix a couple of stray "missing script" errors) went wrong and corrupted the project — likely from its filename-fallback matching mismatching generic-named assets across folders. Rather than fight the corruption, I restored from backup and rebuilt from a fresh AssetRipper export, this time with the lessons from that mistake already in hand.

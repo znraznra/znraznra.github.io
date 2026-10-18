@@ -6,6 +6,7 @@ tags:
   - meta
   - claude
 excerpt: Bad news
+published: true
 ---
 
 I messed up.

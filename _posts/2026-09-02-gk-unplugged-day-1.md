@@ -8,6 +8,7 @@ tags:
   - json
   - vscode
 excerpt: Detailed background of a certain dead gacha game revival, the whys, and how's it so far for Day 1.
+published: true
 ---
 
 **Special thanks to insomnyawolf and realZenith for the CommanderCS project. If it wasn't for their efforts, this experiment wouldn't even have its starting ground.**

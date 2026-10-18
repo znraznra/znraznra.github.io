@@ -5,6 +5,7 @@ tags:
   - windows
   - linux
 excerpt: I hate Micro$lop with a passion.
+published: true
 ---
 
 Windows has ruined my computer after one round of forced Windows Update. Thankfully, Powershell is still working enough to let me robocopy everything so that I can safely reinstall an OS.

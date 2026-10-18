@@ -6,6 +6,7 @@ tags:
   - updates
   - status
 excerpt: I've been inactive for a few days due to a lot of things, and I'd like to share what took most of my time as of late.
+published: true
 ---
 
 ![](/assets/images/uploads/20260926-170033.png)

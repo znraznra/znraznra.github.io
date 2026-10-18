@@ -8,6 +8,7 @@ tags:
   - json
   - vscode
 excerpt: 'Day 2 update logs for the gacha revival project. Also giving it a name: GK-Unplugged.'
+published: true
 ---
 
 Update as of today, 9/2/26
