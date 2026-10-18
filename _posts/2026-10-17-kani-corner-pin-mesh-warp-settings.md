@@ -1,5 +1,5 @@
 ---
-title: "Corner pin, mesh warp, and finally a Settings window"
+title: Corner pin, mesh warp, and finally a Settings window
 date: 2026-10-17T22:00:00
 tags:
   - kani
@@ -8,8 +8,8 @@ tags:
   - mesh-warp
   - ui
   - devlog
-excerpt: "Bending any clip with corner pin or a 4x4 mesh, keyframing all of it, a Morph section, a real Settings window and per-project settings."
-published: false
+excerpt: Bending any clip with corner pin or a 4x4 mesh, keyframing all of it, a Morph section, a real Settings window and per-project settings.
+published: true
 ---
 
 Export is basically there on Linux. Today I went back to things I actually want to *do* in the editor.
