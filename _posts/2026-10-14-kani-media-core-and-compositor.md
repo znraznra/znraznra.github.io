@@ -1,5 +1,5 @@
 ---
-title: "Getting pictures to move: the media core and the compositor"
+title: 'Getting pictures to move: the media core and the compositor'
 date: 2026-10-14T11:00:00
 tags:
   - kani
@@ -8,8 +8,8 @@ tags:
   - compositor
   - video-editing
   - devlog
-excerpt: "Phases 3 and 4. Thumbnails, waveforms, proxies, real preview, then layers, transforms, keyframes and a CapCut-style restyle."
-published: false
+excerpt: Phases 3 and 4. Thumbnails, waveforms, proxies, real preview, then layers, transforms, keyframes and a CapCut-style restyle.
+published: true
 ---
 
 Once GTK was in, the editor finally had to deal with *actual* video. Phase 3 is the media core, Phase 4 is the compositor. Both are done now (on Linux at least), but they took a fair amount of back and forth.
