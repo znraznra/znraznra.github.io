@@ -1,5 +1,5 @@
 ---
-title: "A proper Export window, more codecs, and the crash that ate my 8 GB of RAM"
+title: A proper Export window, more codecs, and the crash that ate my 8 GB of RAM
 date: 2026-10-16T23:00:00
 tags:
   - kani
@@ -8,8 +8,8 @@ tags:
   - export
   - memory
   - devlog
-excerpt: "H.265, VP9 and AV1 export, a redesigned Export window, range export with timeline handles, site presets, and an unbounded queue that force-closed my laptop."
-published: false
+excerpt: H.265, VP9 and AV1 export, a redesigned Export window, range export with timeline handles, site presets, and an unbounded queue that force-closed my laptop.
+published: true
 ---
 
 Speed was sorted. The Export window itself was still a plain form, though, and it only did MP4 with H.264.
