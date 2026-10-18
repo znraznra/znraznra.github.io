@@ -1,5 +1,5 @@
 ---
-title: "Tracks, snapping, caption import, and chasing the silent Windows preview"
+title: Tracks, snapping, caption import, and chasing the silent Windows preview
 date: 2026-10-18T22:00:00
 tags:
   - kani
@@ -9,8 +9,8 @@ tags:
   - windows
   - captions
   - devlog
-excerpt: "Four builds in one afternoon: proper track management, snapping to guides, importing .srt/.vtt/.ass, proof the graphics chip is decoding, and a first real attempt at the Windows sound bug."
-published: false
+excerpt: 'Four builds in one afternoon: proper track management, snapping to guides, importing .srt/.vtt/.ass, proof the graphics chip is decoding, and a first real attempt at the Windows sound bug.'
+published: true
 ---
 
 The morning builds all passed on the ThinkPad, so I kept going. Builds 68, 69 and 70 all landed today, and two more phases got their last loose ends tied up.
