@@ -85,6 +85,13 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
+/* Bulma's .content sets its own heading colour (--bulma-content-heading-color,
+   dark text by default), which beat the rule above inside post bodies.
+   Point it at the main colour so every h1-h6 in a post is teal too. */
+.content {
+  --bulma-content-heading-color: var(--color-primary);
+}
+
 a {
   color: var(--color-primary);
 }
@@ -353,7 +360,7 @@ body {
 .sidebar-subheading {
   font-size: 0.8125rem;
   font-weight: 700;
-  color: var(--color-contrast);
+  color: var(--color-primary);
   margin: 0.9rem 0 0.4rem;
 }
 
