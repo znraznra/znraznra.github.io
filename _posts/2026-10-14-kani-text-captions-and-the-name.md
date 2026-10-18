@@ -1,5 +1,5 @@
 ---
-title: "Text, offline Whisper captions, and the name Kani"
+title: Text, offline Whisper captions, and the name Kani
 date: 2026-10-14T22:00:00
 tags:
   - kani
@@ -8,8 +8,8 @@ tags:
   - captions
   - text
   - devlog
-excerpt: "I skipped Export to do text and captions first. Local Whisper, Silero VAD, styled word highlighting, Apply to all captions, and the fourth (and final) name."
-published: false
+excerpt: I skipped Export to do text and captions first. Local Whisper, Silero VAD, styled word highlighting, Apply to all captions, and the fourth (and final) name.
+published: true
 ---
 
 The roadmap says Phase 5 is Export. I skipped it.
