@@ -1,5 +1,5 @@
 ---
-title: "Guides, full screen, clip replace and saved text styles"
+title: Guides, full screen, clip replace and saved text styles
 date: 2026-10-18T12:00:00
 tags:
   - kani
@@ -8,8 +8,8 @@ tags:
   - linux
   - windows
   - devlog
-excerpt: "Rulers and guides, full screen preview, replacing a clip by dragging media onto it, a hardware decoding check, and saved text styles."
-published: false
+excerpt: Rulers and guides, full screen preview, replacing a clip by dragging media onto it, a hardware decoding check, and saved text styles.
+published: true
 ---
 
 Five days in. This round was a pile of small things that add up to the editor feeling a lot less like a prototype.
