@@ -1,5 +1,5 @@
 ---
-title: Tracks, snapping, caption import, and chasing the silent Windows preview
+title: Kani | Tracks, snapping, caption import, and chasing the silent Windows preview
 date: 2026-10-18T22:00:00
 tags:
   - kani
