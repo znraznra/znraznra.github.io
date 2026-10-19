@@ -1,5 +1,5 @@
 ---
-title: Text, offline Whisper captions, and the name Kani
+title: Kani | Text, offline Whisper captions, and the name Kani
 date: 2026-10-14T22:00:00
 tags:
   - kani
