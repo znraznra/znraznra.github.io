@@ -1,5 +1,5 @@
 ---
-title: Guides, full screen, clip replace and saved text styles
+title: Kani | Guides, full screen, clip replace and saved text styles
 date: 2026-10-18T12:00:00
 tags:
   - kani
