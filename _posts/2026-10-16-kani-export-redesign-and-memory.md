@@ -1,5 +1,5 @@
 ---
-title: A proper Export window, more codecs, and the crash that ate my 8 GB of RAM
+title: Kani | A proper Export window, more codecs, and the crash that ate my 8 GB of RAM
 date: 2026-10-16T23:00:00
 tags:
   - kani
