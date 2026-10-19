@@ -1,5 +1,5 @@
 ---
-title: The Export window that kept coming back from the dead
+title: Kani | The Export window that kept coming back from the dead
 date: 2026-10-15T21:30:00
 tags:
   - kani
