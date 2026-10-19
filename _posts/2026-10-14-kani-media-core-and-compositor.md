@@ -1,5 +1,5 @@
 ---
-title: 'Getting pictures to move: the media core and the compositor'
+title: 'Kani | Getting pictures to move: the media core and the compositor'
 date: 2026-10-14T11:00:00
 tags:
   - kani
