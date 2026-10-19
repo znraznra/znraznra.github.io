@@ -1,5 +1,5 @@
 ---
-title: "From 6 minutes to 47 seconds: making Kani's export actually fast"
+title: "Kani | From 6 minutes to 47 seconds: making Kani's export actually fast"
 date: 2026-10-16T10:00:00
 tags:
   - kani
