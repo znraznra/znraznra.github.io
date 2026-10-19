@@ -1,5 +1,5 @@
 ---
-title: Corner pin, mesh warp, and finally a Settings window
+title: Kani | Corner pin, mesh warp, and finally a Settings window
 date: 2026-10-17T22:00:00
 tags:
   - kani
