@@ -1,5 +1,5 @@
 ---
-title: 'Day 1: egui, broken drag and drop, and jumping ship to GTK4'
+title: 'Kani | Day 1: egui, broken drag and drop, and jumping ship to GTK4'
 date: 2026-10-13T23:30:00
 tags:
   - kani
