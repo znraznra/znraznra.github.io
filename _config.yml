@@ -30,6 +30,10 @@ kramdown:
 
 permalink: /:year/:month/:day/:title/
 
+# Homepage pagination: 10 posts per page; page 2 lives at /page/2/ and so on.
+paginate: 10
+paginate_path: "/page/:num/"
+
 collections:
   pages:
     output: true
@@ -51,6 +55,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate
 
 feed:
   path: feed.xml
